@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.material-tailwind {
+  --mt-font-family: 'Montserrat', sans-serif;
+}
+
+.bg-custom {
+  background-image:url('../img/Rectangle.png'), url('../img/BG-Auth.png') ;
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
