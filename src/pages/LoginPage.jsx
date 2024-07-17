@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Card, Input, Button, Typography } from "@material-tailwind/react";
 import logo1 from "../assets/img/logo1.png";
-// import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../components/Firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../components/Firebase";
 import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
@@ -12,19 +12,19 @@ export const LoginPage = () => {
 
   const navigate = useNavigate();
 
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-  //   signInWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //       const user = userCredential.user;
-  //       console.log(user);
-  //       navigate("/input");
-  //     })
-  //     .catch((error) => {
-  //       setError(true);
-  //     });
-  // };
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/input");
+      })
+      .catch((error) => {
+        setError(true);
+      });
+  };
 
   return (
     <div className="min-h-screen bg-custom flex items-center justify-center">
@@ -37,7 +37,7 @@ export const LoginPage = () => {
         </div>
         <form
           className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96"
-          // onSubmit={handleLogin}
+          onSubmit={handleLogin}
         >
           <div className="mb-1 flex flex-col gap-6">
             <Typography

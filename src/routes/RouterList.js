@@ -8,6 +8,8 @@ import { Rekap } from '../pages/Rekap'
 import { RiwayatPage } from '../pages/RiwayatPage'
 import { MapProses } from '../components/MapProses'
 import { Posisi } from '../pages/Posisi'
+import Percobaan from '../components/Percobaan'
+
 
 const RouterList = () => {
   return (
@@ -21,6 +23,7 @@ const RouterList = () => {
         <Route path='/rekap' element={<Rekap/>}/>
         <Route path='/posisi' element={<Posisi/>}/>
         <Route path='/map' element={<MapProses/>}/>
+        <Route path='/percobaan' element={<Percobaan/>}/>
     </Routes>
     </BrowserRouter>
   )
