@@ -7,39 +7,48 @@ const TABLE_HEAD = ["Tanggal", "Username", "Sampah Organik (KG)", "Botol Plastik
 const TABLE_ROWS = [
   {
     tanggal: "19/01/24",
-    username: "Icha",
+    username: "Ichaa",
     sampah: "4",
     botol: "2",
-    angkut:"1",
+    angkut:"ya",
     xp:"80",
     waypoint:"700"
   },
   {
     tanggal: "19/01/24",
-    username: "Icha",
-    sampah: "4",
-    botol: "2",
-    angkut:"1",
-    xp:"80",
-    waypoint:"700"
+    username: "chaai",
+    sampah: "6",
+    botol: "10",
+    angkut:"tidak",
+    xp:"400",
+    waypoint:"2050"
   },
   {
-    tanggal: "19/01/24",
-    username: "Icha",
-    sampah: "4",
-    botol: "2",
-    angkut:"1",
-    xp:"80",
-    waypoint:"700"
+    tanggal: "20/01/24",
+    username: "Khaai",
+    sampah: "1",
+    botol: "10",
+    angkut:"tidak",
+    xp:"1300",
+    waypoint:"3500"
   },
   {
-    tanggal: "19/01/24",
-    username: "Icha",
-    sampah: "4",
+    tanggal: "20/01/24",
+    username: "Kesyca",
+    sampah: "5",
     botol: "2",
-    angkut:"1",
-    xp:"80",
-    waypoint:"50"
+    angkut:"tidak",
+    xp:"250",
+    waypoint:"2500"
+  },
+  {
+    tanggal: "20/01/24",
+    username: "Kesca",
+    sampah: "2",
+    botol: "10",
+    angkut:"ya",
+    xp:"1050",
+    waypoint:"200"
   },
 ];
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Sidebar } from "../components/Sidebar";
 import satria from "../assets/img/Satriaa.png";
+import { Button } from "@material-tailwind/react";
 
 const orders = [
   {
@@ -91,6 +92,11 @@ export const Angkut = () => {
 
 const OrderCard = ({ order, view }) => {
   const { id, address, time, price, distance, status, estimation, riderName } = order;
+  const [disabled, setDisabled] = useState(false);
+
+  const handleButtonClick = () => {
+    setDisabled(true);
+  };
 
   return (
     <div className="flex flex-col gap-6">
@@ -109,14 +115,26 @@ const OrderCard = ({ order, view }) => {
               <h3>{distance}</h3>
               </div>
               {view === "pesanan" && (
-              <button className="bg-hijau rounded-full px-10 py-2 text-white">
+              <Button
+                className={`${
+                  disabled ? "bg-abu cursor-not-allowed" : "bg-hijau"
+                } rounded-full px-12 py-3 text-white font-custom`}
+                onClick={handleButtonClick}
+                disabled={disabled}
+              >
                 Terima
-              </button>
+              </Button>
             )}
             {view === "dalam_proses" && (
-              <button className="bg-hijau rounded-full px-10 py-2 text-white">
+              <Button
+              className={`${
+                disabled ? "bg-abu cursor-not-allowed" : "bg-hijau"
+              } rounded-full px-12 py-3 text-white font-custom`}
+              onClick={handleButtonClick}
+              disabled={disabled}
+            >
                 Selesai
-              </button>
+              </Button>
             )}
             </div>
           </div>

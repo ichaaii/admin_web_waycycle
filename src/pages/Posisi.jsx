@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Sidebar } from "../components/Sidebar";
 import satria from "../assets/img/Satriaa.png";
 import { MapProses } from "../components/MapProses";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@material-tailwind/react";
 
 export const Posisi = () => {
     const navigate = useNavigate();
+    const [disabled, setDisabled] = useState(false);
+
+    const handleButtonClick = () => {
+      setDisabled(true);
+    };
   return (
     <div className="flex">
       <Sidebar />
@@ -30,9 +36,15 @@ export const Posisi = () => {
               </svg>
               <h1 className="text-3xl font-bold">Posisi Satria</h1>
             </div>
-            <button className="bg-hijau rounded-full px-12 py-2 text-white">
-              Selesai
-            </button>
+            <Button
+              className={`${
+                disabled ? "bg-abu cursor-not-allowed" : "bg-hijau"
+              } rounded-full px-12 py-3 text-white font-custom`}
+              onClick={handleButtonClick}
+              disabled={disabled}
+            >
+                Selesai
+              </Button>
           </div>
           <div className="flex flex-col">
             <div className="flex flex-col gap-4">

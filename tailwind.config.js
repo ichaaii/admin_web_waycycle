@@ -12,7 +12,8 @@ module.exports = withMT({
         'hijau-90': '#4D6E51',
         'font-hijau': '#1A4D2E',
         'putih': '#E9E9E9',
-        'abu' : "E7E7E7"
+        'abu' : "#A2A2A2",
+        'merah' : "#B93636",
       },
       screens: {
         sm: "425px",

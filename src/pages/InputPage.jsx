@@ -76,7 +76,7 @@ export const InputPage = () => {
               <h5 className="w-4/6">Berat Sampah Organik</h5>
               <Input
                 size="md"
-                label="berat sampah"
+                label="berat sampah (Kg)"
                 value={beratSampah}
                 onChange={handleBeratSampahChange}
               />
@@ -85,7 +85,7 @@ export const InputPage = () => {
               <h5 className="w-4/6">Jumlah Botol Plastik</h5>
               <Input
                 size="md"
-                label="jumlah botol"
+                label="jumlah botol (Pcs)"
                 value={jumlahBotol}
                 onChange={handleJumlahBotolChange}
               />
@@ -111,7 +111,7 @@ export const InputPage = () => {
       </div>
 
       {isSuccessModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30">
         <div className="bg-hijau-90 px-16 py-10 rounded-lg shadow-xl flex flex-col gap-4">
             <div className="flex justify-center">
               <img className="w-16 h-16" src={berhasil} alt="berhasil" />
@@ -119,7 +119,7 @@ export const InputPage = () => {
             <p className="text-center text-putih font-medium">Poin dan Xp berhasil dikirim ke pengguna</p>
             <div className="flex justify-center">
             <Button className="rounded-full w-fit px-14 text-black bg-putih" onClick={closeModal}>
-              Close
+              Tutup
             </Button>
             </div>
           </div>
@@ -135,7 +135,7 @@ export const InputPage = () => {
           <p className="text-center text-putih font-medium">Poin dan Xp gagal dikirim ke pengguna</p>
           <div className="flex justify-center">
           <Button className="rounded-full w-fit px-14 text-black bg-putih" onClick={closeModal}>
-            Close
+            Tutup
           </Button>
           </div>
         </div>
