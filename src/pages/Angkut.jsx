@@ -118,7 +118,7 @@ const OrderCard = ({ order, view }) => {
               <Button
                 className={`${
                   disabled ? "bg-abu cursor-not-allowed" : "bg-hijau"
-                } rounded-full px-12 py-3 text-white font-custom`}
+                } rounded-full px-12 py-3 text-white font-custom text-center`}
                 onClick={handleButtonClick}
                 disabled={disabled}
               >

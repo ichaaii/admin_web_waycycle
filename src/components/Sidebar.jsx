@@ -19,7 +19,7 @@ export const Sidebar = () => {
   };
 
   return (
-    <Card className="min-h-screen w-full max-w-[25rem] ml-0 p-4 bg-hijau shadow-xl shadow-blue-gray-900/5 font-custom flex flex-col">
+    <Card className="min-h-screen w-full max-w-[20rem] ml-0 p-4 bg-hijau shadow-xl shadow-blue-gray-900/5 font-custom flex flex-col">
       <div className="mb-2 flex items-center gap-4 p-4 ">
         <img
           alt="logo"
