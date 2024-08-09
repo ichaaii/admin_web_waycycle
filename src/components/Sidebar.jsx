@@ -1,18 +1,28 @@
 import React, { useState } from "react";
 import { Button, Card, List, ListItem } from "@material-tailwind/react";
 import logo1 from "../assets/img/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
+import { auth } from "../components/Firebase";
 
 export const Sidebar = () => {
   const [showConfirmDialog, setShowConfirmDialog] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     setShowConfirmDialog(true);
   };
 
   const handleConfirmLogout = () => {
-    window.location.href = "/";
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error during logout: ", error);
+      });
   };
+
 
   const handleCancelLogout = () => {
     setShowConfirmDialog(false);

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Sidebar } from "../components/Sidebar";
 import { Button, Input, Checkbox } from "@material-tailwind/react";
 import berhasil from "../assets/img/succes.png";
 import gagal from "../assets/img/Cancel.png";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp, getDocs  } from "firebase/firestore";
 import { db } from "../components/Firebase.js";
 
 export const InputPage = () => {
@@ -11,10 +11,23 @@ export const InputPage = () => {
   const [isFailureModalOpen, setIsFailureModalOpen] = useState(false);
   const [beratSampah, setBeratSampah] = useState(0);
   const [jumlahBotol, setJumlahBotol] = useState(0);
-  const [username, setUsername] = useState("");
+  //const [username, setUsername] = useState("");
+  const [usernames, setUsernames] = useState([]);
+  const [selectedUsername, setSelectedUsername] = useState("");
   const [totalWayPoint, setTotalWayPoint] = useState(0);
   const [totalXP, setTotalXP] = useState(0);
   const [angkut, setAngkut] = useState("");
+
+  useEffect(() => {
+    const fetchUsernames = async () => {
+      const querySnapshot = await getDocs(collection(db, "mobile"));
+      const fetchedUsernames = querySnapshot.docs.map((doc) => doc.data().username);
+      setUsernames(fetchedUsernames);
+    };
+
+    fetchUsernames();
+  }, []);
+
 
   const handleBeratSampahChange = (e) => {
     const value = parseInt(e.target.value, 10) || 0;
@@ -45,7 +58,8 @@ export const InputPage = () => {
   const handleButtonClick = async () => {
     try {
       await addDoc(collection(db, "transactions"), {
-        username: username,
+        // username: username,
+        username: selectedUsername,
         organicWaste: beratSampah,
         plasticBottle: jumlahBotol,
         WayPoint: totalWayPoint,
@@ -77,12 +91,24 @@ export const InputPage = () => {
           <div className="flex flex-col items-center mr-[5rem] gap-6">
             <div className="flex flex-row items-center gap-5 w-4/6">
               <h5 className="w-4/6">Username</h5>
-              <Input
+              <select
+                value={selectedUsername}
+                onChange={(e) => setSelectedUsername(e.target.value)}
+                className="p-2 border rounded-lg w-full"
+              >
+                <option value="">Pilih Username</option>
+                {usernames.map((username) => (
+                  <option key={username} value={username}>
+                    {username}
+                  </option>
+                ))}
+              </select>
+              {/* <Input
                 label="username"
                 size="md"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-              />
+              /> */}
             </div>
             <div className="flex flex-row items-center gap-5 w-4/6">
               <h5 className="w-4/6">Berat Sampah Organik</h5>

@@ -6,21 +6,62 @@ import { InputPage } from '../pages/InputPage'
 import { Angkut } from '../pages/Angkut'
 import { Rekap } from '../pages/Rekap'
 import { RiwayatPage } from '../pages/RiwayatPage'
-import { MapProses } from '../components/MapProses'
 import { Posisi } from '../pages/Posisi'
+import ProtectedRoute from '../components/protected/ProtectedRoute'
 
 const RouterList = () => {
   return (
     <BrowserRouter>
     <Routes>
-        <Route path='/' element={<LoginPage/>}/>
-        <Route path='/sidebar' element={<Sidebar/>}/>
-        <Route path='/input' element={<InputPage/>}/>
-        <Route path='/angkut' element={<Angkut/>}/>
-        <Route path='/riwayat' element={<RiwayatPage/>}/>
-        <Route path='/rekap' element={<Rekap/>}/>
-        <Route path='/posisi' element={<Posisi/>}/>
-        <Route path='/map' element={<MapProses/>}/>
+    <Route path="/" element={<LoginPage />} />
+    <Route
+          path="/sidebar"
+          element={
+            <ProtectedRoute>
+              <Sidebar />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/input"
+          element={
+            <ProtectedRoute>
+              <InputPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/angkut"
+          element={
+            <ProtectedRoute>
+              <Angkut />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/riwayat"
+          element={
+            <ProtectedRoute>
+              <RiwayatPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/rekap"
+          element={
+            <ProtectedRoute>
+              <Rekap />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/posisi"
+          element={
+            <ProtectedRoute>
+              <Posisi />
+            </ProtectedRoute>
+          }
+        />
     </Routes>
     </BrowserRouter>
   )
